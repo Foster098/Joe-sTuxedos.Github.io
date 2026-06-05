@@ -1,0 +1,807 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOE'S TUXEDOS — Renta de Trajes en Nuevo Laredo</title>
+  <meta name="description" content="En el vibrante corazón de Tamaulipas, México, se encuentra Joe's Tuxedos, una tienda de alquiler de trajes para hombres en Nuevo Laredo.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #e8c97a;
+      --dark: #0f0d0a;
+      --dark-mid: #1a1714;
+      --cream: #f5f0e8;
+      --cream-dark: #e8e0d0;
+      --text: #2a2520;
+      --red-accent: #8b1a1a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Raleway', sans-serif;
+      background-color: var(--dark);
+      color: var(--cream);
+      overflow-x: hidden;
+    }
+
+    header {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0a0807 0%, #1c1510 50%, #0d0b08 100%);
+    }
+
+    .header-ornament {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .header-border {
+      position: absolute;
+      inset: 20px;
+      border: 1px solid rgba(201,168,76,0.25);
+      pointer-events: none;
+      animation: borderFade 2s ease forwards;
+      opacity: 0;
+    }
+    .header-border::before, .header-border::after {
+      content: '';
+      position: absolute;
+      width: 40px; height: 40px;
+      border-color: var(--gold);
+      border-style: solid;
+    }
+    .header-border::before { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+    .header-border::after  { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+
+    @keyframes borderFade {
+      to { opacity: 1; }
+    }
+
+    .header-content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 2rem;
+      animation: fadeUp 1.2s ease forwards;
+      opacity: 0;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .tagline-top {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 300;
+      font-size: 0.75rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .logo-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 10vw, 7rem);
+      font-weight: 700;
+      line-height: 0.9;
+      color: var(--cream);
+      text-shadow: 0 0 60px rgba(201,168,76,0.3);
+    }
+    .logo-title span {
+      display: block;
+      font-size: 0.35em;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      margin-bottom: 0.4em;
+    }
+
+    .ornament-line {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem auto;
+      max-width: 400px;
+    }
+    .ornament-line::before, .ornament-line::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+    .ornament-diamond {
+      width: 8px; height: 8px;
+      background: var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+    }
+
+    .header-subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(245,240,232,0.6);
+      margin-top: 0.5rem;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(201,168,76,0.5);
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      animation: fadeUp 1.8s ease 0.5s forwards;
+      opacity: 0;
+    }
+    .scroll-arrow {
+      width: 20px; height: 20px;
+      border-right: 1px solid var(--gold);
+      border-bottom: 1px solid var(--gold);
+      transform: rotate(45deg);
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(5px); }
+    }
+
+    nav {
+      background: var(--dark-mid);
+      border-top: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    nav ul li a {
+      display: block;
+      padding: 1rem 1.5rem;
+      text-decoration: none;
+      color: rgba(245,240,232,0.7);
+      font-size: 0.72rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      transition: color 0.3s, background 0.3s;
+    }
+    nav ul li a:hover {
+      color: var(--gold);
+      background: rgba(201,168,76,0.05);
+    }
+
+    section {
+      padding: 5rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      text-align: center;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    
+    #nosotros {
+      background: var(--dark-mid);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-top: 3rem;
+    }
+    @media (max-width: 700px) {
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .about-image-wrap {
+      position: relative;
+    }
+    .about-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border: 1px solid rgba(201,168,76,0.3);
+      z-index: 0;
+    }
+    .about-image-wrap img {
+      width: 100%;
+      display: block;
+      position: relative;
+      z-index: 1;
+      filter: sepia(15%) contrast(1.05);
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.8);
+      margin-bottom: 1.2rem;
+      font-weight: 300;
+    }
+    .about-text p:first-child {
+      font-size: 1.15rem;
+      color: var(--cream);
+    }
+
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 0.75rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .rating-stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+    }
+    .rating-text {
+      font-size: 0.85rem;
+      color: var(--cream-dark);
+    }
+    .rating-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    
+    #informacion {
+      background: var(--dark);
+    }
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .info-card {
+      background: rgba(201,168,76,0.04);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 2rem;
+      text-align: center;
+      transition: border-color 0.3s, background 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .info-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0);
+      transition: transform 0.4s;
+    }
+    .info-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      background: rgba(201,168,76,0.07);
+      transform: translateY(-4px);
+    }
+    .info-card:hover::before { transform: scaleX(1); }
+
+    .info-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.1em;
+    }
+    .info-card p, .info-card a {
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.75);
+      line-height: 1.6;
+      text-decoration: none;
+    }
+    .info-card a:hover { color: var(--gold); }
+
+    
+    #preguntas {
+      background: var(--dark-mid);
+    }
+    .faq-list {
+      margin-top: 3rem;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .faq-item {
+      border-bottom: 1px solid rgba(201,168,76,0.15);
+      margin-bottom: 0.5rem;
+    }
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--cream);
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      text-align: left;
+      padding: 1.25rem 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.3s;
+    }
+    .faq-question:hover { color: var(--gold); }
+    .faq-chevron {
+      width: 16px; height: 16px;
+      border-right: 1.5px solid var(--gold);
+      border-bottom: 1.5px solid var(--gold);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(225deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease;
+    }
+    .faq-item.open .faq-answer { max-height: 300px; }
+    .faq-answer p {
+      padding-bottom: 1.25rem;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.7);
+      font-weight: 300;
+    }
+    .faq-answer strong { color: var(--gold); font-weight: 500; }
+
+    
+    #contacto {
+      background: var(--dark);
+    }
+    .contact-wrap {
+      margin-top: 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .contact-wrap { grid-template-columns: 1fr; }
+    }
+    .map-frame {
+      position: relative;
+      padding-bottom: 66%;
+      border: 1px solid rgba(201,168,76,0.2);
+      overflow: hidden;
+    }
+    .map-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(30%) sepia(10%);
+    }
+
+    .contact-details { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .contact-row-icon {
+      width: 40px; height: 40px;
+      border: 1px solid rgba(201,168,76,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      color: var(--gold);
+    }
+    .contact-row-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.85rem;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.1em;
+    }
+    .contact-row-text p, .contact-row-text a {
+      font-size: 0.9rem;
+      color: rgba(245,240,232,0.75);
+      text-decoration: none;
+      line-height: 1.5;
+    }
+    .contact-row-text a:hover { color: var(--gold); }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 1rem 2.5rem;
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, color 0.3s;
+      cursor: pointer;
+    }
+    .btn-primary:hover {
+      background: var(--gold);
+      color: var(--dark);
+    }
+
+    
+    footer {
+      background: #080706;
+      border-top: 1px solid rgba(201,168,76,0.15);
+      text-align: center;
+      padding: 3rem 1.5rem;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .footer-tagline {
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      color: rgba(245,240,232,0.3);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: rgba(245,240,232,0.2);
+    }
+
+    
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    .photo-banner {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+    }
+    .photo-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: brightness(0.75) sepia(10%);
+      transition: transform 8s ease;
+    }
+    .photo-banner:hover img {
+      transform: scale(1.04);
+    }
+    .photo-banner-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, rgba(15,13,10,0.2) 0%, rgba(15,13,10,0.55) 100%);
+      text-align: center;
+      padding: 2rem;
+    }
+    .photo-banner-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .photo-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: var(--cream);
+      font-weight: 600;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      max-width: 700px;
+    }
+    @media (max-width: 700px) {
+      .photo-banner { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  
+  <header>
+    <div class="header-ornament"></div>
+    <div class="header-border"></div>
+    <div class="header-content">
+      <p class="tagline-top">Nuevo Laredo, Tamaulipas · México</p>
+      <h1 class="logo-title">
+        <span>Joe's</span>
+        TUXEDOS
+      </h1>
+      <div class="ornament-line"><div class="ornament-diamond"></div></div>
+      <p class="header-subtitle">Renta de Trajes para Hombres</p>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-arrow"></div>
+      <span>Descubrir</span>
+    </div>
+  </header>
+
+  
+  <nav>
+    <ul>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#informacion">Información</a></li>
+      <li><a href="#preguntas">FAQ</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  
+  <section id="nosotros">
+    <div class="container">
+      <p class="section-label reveal">Nuestra historia</p>
+      <h2 class="section-title reveal">Elegancia con tradición</h2>
+      <div class="ornament-line reveal"><div class="ornament-diamond"></div></div>
+
+      <div class="about-grid">
+        <div class="about-image-wrap reveal">
+          <img src="assets/joes-tuxedos.jpg" alt="JOE'S TUXEDOS" loading="lazy">
+        </div>
+        <div class="about-text">
+          <p class="reveal">En el vibrante corazón de Tamaulipas, México, se encuentra Joe's Tuxedos, una tienda de alquiler de trajes para hombres que se ha convertido en un referente de estilo y elegancia.</p>
+          <p class="reveal reveal-delay-1">Con una amplia variedad de trajes de etiqueta, Joe's Tuxedos ofrece soluciones de vestuario perfectas para cualquier ocasión especial. Desde bodas y graduaciones hasta galas y eventos corporativos, este establecimiento es el aliado perfecto para aquellos que buscan vestir con distinción.</p>
+          <p class="reveal reveal-delay-2">La calidad de sus trajes, combinada con un servicio personalizado y atención al detalle, hace de Joe's Tuxedos una opción insuperable en la ciudad. El personal es amable, conocedor y siempre está dispuesto a ayudar a los clientes a encontrar el traje perfecto.</p>
+          <div class="rating-badge reveal reveal-delay-3">
+            <div>
+              <div class="rating-num">4.1</div>
+            </div>
+            <div>
+              <div class="rating-stars">★★★★☆</div>
+              <div class="rating-text">Calificación de clientes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="photo-banner">
+    <img src="assets/tuxedo-hero.jpg" alt="Trajes de etiqueta Joe's Tuxedos">
+    <div class="photo-banner-overlay">
+      <p class="photo-banner-tag">Estilo · Elegancia · Distinción</p>
+      <h3 class="photo-banner-title">Viste para el momento más importante</h3>
+    </div>
+  </div>
+
+  <section id="informacion">
+    <div class="container">
+      <p class="section-label reveal">Datos de contacto</p>
+      <h2 class="section-title reveal">Información del establecimiento</h2>
+      <div class="ornament-line reveal"><div class="ornament-diamond"></div></div>
+
+      <div class="info-grid">
+        <div class="info-card reveal">
+          <span class="info-icon">📍</span>
+          <h3>Dirección</h3>
+          <p>Calle Dr. Mier 6302, Militar<br>88289 Nuevo Laredo, Tamps.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-1">
+          <span class="info-icon">📞</span>
+          <h3>Teléfono</h3>
+          <p><a href="tel:8673344588">867 334 4588</a></p>
+        </div>
+        <div class="info-card reveal reveal-delay-2">
+          <span class="info-icon">🕐</span>
+          <h3>Horario</h3>
+          <p>Llama al <a href="tel:8673344588">867 334 4588</a> para confirmar el horario de atención de tu preferencia.</p>
+        </div>
+        <div class="info-card reveal reveal-delay-3">
+          <span class="info-icon">💬</span>
+          <h3>Redes Sociales</h3>
+          <p><a href="https://www.facebook.com/jaime.cedillo.1447" target="_blank" rel="noopener noreferrer">Ver perfil en Facebook</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="preguntas">
+    <div class="container">
+      <p class="section-label reveal">Preguntas frecuentes</p>
+      <h2 class="section-title reveal">Más información</h2>
+      <div class="ornament-line reveal"><div class="ornament-diamond"></div></div>
+
+      <div class="faq-list">
+        <div class="faq-item reveal">
+          <button class="faq-question" aria-expanded="false">
+            ¿Dónde se encuentra ubicada la tienda JOE'S TUXEDOS?
+            <span class="faq-chevron"></span>
+          </button>
+          <div class="faq-answer">
+            <p>JOE'S TUXEDOS está situada en <strong>Calle Dr. Mier 6302, Militar, 88289 Nuevo Laredo, Tamps.</strong> Es una dirección fácil de ubicar y accesible para todos aquellos que buscan alquilar trajes para hombres en México. Su ubicación estratégica permite a los clientes llegar fácilmente desde diferentes puntos de la ciudad.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-1">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cuál es el horario de atención de JOE'S TUXEDOS?
+            <span class="faq-chevron"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Para brindar un servicio óptimo a todos sus clientes, JOE'S TUXEDOS ofrece un horario de atención flexible. Se recomienda <strong>llamar al 867 334 4588</strong> para confirmar el horario y asegurarse de que puedan atenderle en el momento de su visita, especialmente en temporada de eventos especiales.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-2">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cómo puedo realizar una reserva?
+            <span class="faq-chevron"></span>
+          </button>
+          <div class="faq-answer">
+            <p>Para realizar una reserva, puedes comunicarte directamente al <strong>867 334 4588</strong>. También puedes visitar su perfil de Facebook en <strong>facebook.com/jaime.cedillo.1447</strong> para obtener más información sobre servicios, productos y promociones disponibles.</p>
+          </div>
+        </div>
+        <div class="faq-item reveal reveal-delay-3">
+          <button class="faq-question" aria-expanded="false">
+            ¿Cuál es la calificación de JOE'S TUXEDOS en satisfacción del cliente?
+            <span class="faq-chevron"></span>
+          </button>
+          <div class="faq-answer">
+            <p>La satisfacción del cliente es una de las principales prioridades de JOE'S TUXEDOS. Han logrado obtener una calificación de <strong>4.1 / 5</strong>, lo que refleja la calidad de sus trajes y la excelencia en su servicio al cliente. Los clientes pueden confiar en recibir un trato personalizado y profesional.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="contacto">
+    <div class="container">
+      <p class="section-label reveal">Visítanos</p>
+      <h2 class="section-title reveal">Encuéntranos</h2>
+      <div class="ornament-line reveal"><div class="ornament-diamond"></div></div>
+
+      <div class="contact-wrap">
+        <div class="map-frame reveal">
+          <iframe
+            src="https://www.google.com/maps?q=Calle+Dr.+Mier+6302,+Militar,+88289+Nuevo+Laredo,+Tamaulipas,+Mexico&output=embed"
+            title="Ubicación JOE'S TUXEDOS"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+        <div class="contact-details">
+          <div class="contact-row reveal">
+            <div class="contact-row-icon">📍</div>
+            <div class="contact-row-text">
+              <h4>Dirección</h4>
+              <p>Calle Dr. Mier 6302, Militar<br>88289 Nuevo Laredo, Tamps., México</p>
+            </div>
+          </div>
+          <div class="contact-row reveal reveal-delay-1">
+            <div class="contact-row-icon">📞</div>
+            <div class="contact-row-text">
+              <h4>Teléfono</h4>
+              <a href="tel:8673344588">867 334 4588</a>
+            </div>
+          </div>
+          <div class="contact-row reveal reveal-delay-2">
+            <div class="contact-row-icon">★</div>
+            <div class="contact-row-text">
+              <h4>Calificación</h4>
+              <p>4.1 / 5 — <a href="https://www.facebook.com/jaime.cedillo.1447" target="_blank" rel="noopener noreferrer">Leer Opiniones</a></p>
+            </div>
+          </div>
+          <div class="reveal reveal-delay-3">
+            <a
+              class="btn-primary"
+              href="https://www.facebook.com/jaime.cedillo.1447"
+              target="_blank"
+              rel="noopener noreferrer">
+              Más información
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer>
+    <div class="footer-logo">JOE'S TUXEDOS</div>
+    <p class="footer-tagline">Renta de Trajes para Hombres · Nuevo Laredo, Tamaulipas</p>
+    <p class="footer-copy">&copy; 2024 Joe's Tuxedos. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0, rootMargin: '0px 0px -20px 0px' });
+    reveals.forEach(el => io.observe(el));
+
+    setTimeout(() => reveals.forEach(el => el.classList.add('visible')), 800);
+
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+        btn.setAttribute('aria-expanded', !isOpen);
+      });
+    });
+  </script>
+</body>
+</html>
