@@ -521,54 +521,6 @@
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
-
-    .photo-banner {
-      position: relative;
-      width: 100%;
-      height: 480px;
-      overflow: hidden;
-    }
-    .photo-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-      display: block;
-      filter: brightness(0.75) sepia(10%);
-      transition: transform 8s ease;
-    }
-    .photo-banner:hover img {
-      transform: scale(1.04);
-    }
-    .photo-banner-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(to bottom, rgba(15,13,10,0.2) 0%, rgba(15,13,10,0.55) 100%);
-      text-align: center;
-      padding: 2rem;
-    }
-    .photo-banner-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1rem;
-    }
-    .photo-banner-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 4vw, 3rem);
-      color: var(--cream);
-      font-weight: 600;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
-      max-width: 700px;
-    }
-    @media (max-width: 700px) {
-      .photo-banner { height: 300px; }
-    }
   </style>
 </head>
 <body>
@@ -631,14 +583,7 @@
     </div>
   </section>
 
-  <div class="photo-banner">
-    <img src="assets/tuxedo-hero.jpg" alt="Trajes de etiqueta Joe's Tuxedos">
-    <div class="photo-banner-overlay">
-      <p class="photo-banner-tag">Estilo · Elegancia · Distinción</p>
-      <h3 class="photo-banner-title">Viste para el momento más importante</h3>
-    </div>
-  </div>
-
+  
   <section id="informacion">
     <div class="container">
       <p class="section-label reveal">Datos de contacto</p>
@@ -737,14 +682,14 @@
         </div>
         <div class="contact-details">
           <div class="contact-row reveal">
-            <div class="contact-row-icon">📍</div>
+            <div class="contact-row-icon"></div>
             <div class="contact-row-text">
               <h4>Dirección</h4>
               <p>Calle Dr. Mier 6302, Militar<br>88289 Nuevo Laredo, Tamps., México</p>
             </div>
           </div>
           <div class="contact-row reveal reveal-delay-1">
-            <div class="contact-row-icon">📞</div>
+            <div class="contact-row-icon"></div>
             <div class="contact-row-text">
               <h4>Teléfono</h4>
               <a href="tel:8673344588">867 334 4588</a>
