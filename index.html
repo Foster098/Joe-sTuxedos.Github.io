@@ -521,6 +521,247 @@
     .reveal-delay-1 { transition-delay: 0.1s; }
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
+
+    #pedidos {
+      background: var(--dark-mid);
+    }
+    .order-intro {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(245,240,232,0.75);
+      font-weight: 300;
+    }
+    .order-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .order-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1rem;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(201,168,76,0.12);
+      background: rgba(201,168,76,0.03);
+      position: relative;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .order-step:hover {
+      border-color: rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.06);
+    }
+    .order-step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: rgba(201,168,76,0.2);
+      line-height: 1;
+    }
+    .order-step-text h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .order-step-text p {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: rgba(245,240,232,0.65);
+      font-weight: 300;
+    }
+    .order-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1.1rem 2.5rem;
+      background: #25D366;
+      color: #fff;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.25);
+    }
+    .btn-whatsapp:hover {
+      background: #1ebe5d;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(37,211,102,0.35);
+    }
+    .wa-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+    .order-note {
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.4);
+    }
+    .order-note a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .order-note a:hover { text-decoration: underline; }
+
+    @media (max-width: 768px) {
+      section { padding: 3.5rem 1.25rem; }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-image-wrap::before { inset: -8px; }
+      .about-image-wrap { overflow: hidden; margin: 0 8px; }
+
+      .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .map-frame { padding-bottom: 75%; }
+
+      .info-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .info-card { padding: 1.5rem 1rem; }
+      .order-steps { grid-template-columns: 1fr; gap: 1rem; }
+    }
+
+    @media (max-width: 600px) {
+      .header-border { inset: 12px; }
+
+      .tagline-top {
+        font-size: 0.65rem;
+        letter-spacing: 0.25em;
+      }
+
+      .header-subtitle {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+      }
+
+      nav ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        width: 100%;
+      }
+      nav ul li a {
+        padding: 0.85rem 0.5rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-align: center;
+        border-bottom: 1px solid rgba(201,168,76,0.08);
+      }
+      nav ul li:nth-child(3n) a {
+        border-right: none;
+      }
+      nav ul li:not(:nth-child(3n)) a {
+        border-right: 1px solid rgba(201,168,76,0.08);
+      }
+
+      section { padding: 3rem 1rem; }
+
+      .section-label { letter-spacing: 0.25em; }
+
+      .about-image-wrap { margin: 0 14px; }
+      .about-image-wrap::before { inset: -6px; }
+      .about-text p { font-size: 0.92rem; }
+
+      .rating-badge {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .info-grid { grid-template-columns: 1fr; }
+      .info-card { padding: 1.5rem; }
+
+      .faq-question { font-size: 0.92rem; padding: 1rem 0; }
+      .faq-answer p { font-size: 0.88rem; }
+
+      .map-frame { padding-bottom: 80%; }
+
+      .contact-row-icon { width: 36px; height: 36px; font-size: 0.9rem; }
+      .contact-row-text p,
+      .contact-row-text a { font-size: 0.88rem; }
+
+      .btn-primary {
+        display: block;
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+        padding: 1rem;
+      }
+      .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .order-step { padding: 1.5rem 1rem; }
+
+      .footer-tagline {
+        letter-spacing: 0.15em;
+        font-size: 0.65rem;
+        line-height: 1.8;
+      }
+
+      .photo-banner { height: 260px; }
+      .photo-banner-tag { letter-spacing: 0.25em; font-size: 0.65rem; }
+    }
+
+    .photo-banner {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+    }
+    .photo-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: brightness(0.75) sepia(10%);
+      transition: transform 8s ease;
+    }
+    .photo-banner:hover img {
+      transform: scale(1.04);
+    }
+    .photo-banner-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to bottom, rgba(15,13,10,0.2) 0%, rgba(15,13,10,0.55) 100%);
+      text-align: center;
+      padding: 2rem;
+    }
+    .photo-banner-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .photo-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 3rem);
+      color: var(--cream);
+      font-weight: 600;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.5);
+      max-width: 700px;
+    }
+    @media (max-width: 700px) {
+      .photo-banner { height: 300px; }
+    }
   </style>
 </head>
 <body>
@@ -549,6 +790,7 @@
     <ul>
       <li><a href="#nosotros">Nosotros</a></li>
       <li><a href="#informacion">Información</a></li>
+      <li><a href="#pedidos">Pedidos</a></li>
       <li><a href="#preguntas">FAQ</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -583,7 +825,14 @@
     </div>
   </section>
 
-  
+  <div class="photo-banner">
+    <img src="assets/tuxedo-hero.jpg" alt="Trajes de etiqueta Joe's Tuxedos">
+    <div class="photo-banner-overlay">
+      <p class="photo-banner-tag">Estilo · Elegancia · Distinción</p>
+      <h3 class="photo-banner-title">Viste para el momento más importante</h3>
+    </div>
+  </div>
+
   <section id="informacion">
     <div class="container">
       <p class="section-label reveal">Datos de contacto</p>
@@ -599,12 +848,12 @@
         <div class="info-card reveal reveal-delay-1">
           <span class="info-icon">📞</span>
           <h3>Teléfono</h3>
-          <p><a href="tel:8673344588">867 334 4588</a></p>
+          <p><a href="tel:8672474378">867 247 4378</a></p>
         </div>
         <div class="info-card reveal reveal-delay-2">
           <span class="info-icon">🕐</span>
           <h3>Horario</h3>
-          <p>Llama al <a href="tel:8673344588">867 334 4588</a> para confirmar el horario de atención de tu preferencia.</p>
+          <p>Llama al <a href="tel:8672474378">867 247 4378</a> para confirmar el horario de atención de tu preferencia.</p>
         </div>
         <div class="info-card reveal reveal-delay-3">
           <span class="info-icon">💬</span>
@@ -638,7 +887,7 @@
             <span class="faq-chevron"></span>
           </button>
           <div class="faq-answer">
-            <p>Para brindar un servicio óptimo a todos sus clientes, JOE'S TUXEDOS ofrece un horario de atención flexible. Se recomienda <strong>llamar al 867 334 4588</strong> para confirmar el horario y asegurarse de que puedan atenderle en el momento de su visita, especialmente en temporada de eventos especiales.</p>
+            <p>Para brindar un servicio óptimo a todos sus clientes, JOE'S TUXEDOS ofrece un horario de atención flexible. Se recomienda <strong>llamar al 867 247 4378</strong> para confirmar el horario y asegurarse de que puedan atenderle en el momento de su visita, especialmente en temporada de eventos especiales.</p>
           </div>
         </div>
         <div class="faq-item reveal reveal-delay-2">
@@ -647,7 +896,7 @@
             <span class="faq-chevron"></span>
           </button>
           <div class="faq-answer">
-            <p>Para realizar una reserva, puedes comunicarte directamente al <strong>867 334 4588</strong>. También puedes visitar su perfil de Facebook en <strong>facebook.com/jaime.cedillo.1447</strong> para obtener más información sobre servicios, productos y promociones disponibles.</p>
+            <p>Para realizar una reserva, puedes comunicarte directamente al <strong>867 247 4378</strong>. También puedes visitar su perfil de Facebook en <strong>facebook.com/jaime.cedillo.1447</strong> para obtener más información sobre servicios, productos y promociones disponibles.</p>
           </div>
         </div>
         <div class="faq-item reveal reveal-delay-3">
@@ -664,6 +913,54 @@
   </section>
 
   
+  <section id="pedidos">
+    <div class="container">
+      <p class="section-label reveal">Reserva tu traje</p>
+      <h2 class="section-title reveal">Haz tu pedido</h2>
+      <div class="ornament-line reveal"><div class="ornament-diamond"></div></div>
+
+      <p class="order-intro reveal">¿Listo para lucir impecable? Escríbenos directamente por WhatsApp y un asesor te ayudará a elegir el traje perfecto para tu ocasión especial.</p>
+
+      <div class="order-steps reveal">
+        <div class="order-step">
+          <div class="order-step-num">01</div>
+          <div class="order-step-text">
+            <h4>Elige tu ocasión</h4>
+            <p>Boda, graduación, gala, evento corporativo o cualquier celebración especial.</p>
+          </div>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">02</div>
+          <div class="order-step-text">
+            <h4>Contáctanos</h4>
+            <p>Escríbenos por WhatsApp con tu talla y fecha del evento para reservar.</p>
+          </div>
+        </div>
+        <div class="order-step">
+          <div class="order-step-num">03</div>
+          <div class="order-step-text">
+            <h4>Recoge tu traje</h4>
+            <p>Visítanos en Calle Dr. Mier 6302 y retira tu traje listo para lucir.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-cta reveal">
+        <a
+          class="btn-whatsapp"
+          href="https://wa.me/528672474378?text=Hola%20Joe's%20Tuxedos%2C%20me%20gustar%C3%ADa%20hacer%20un%20pedido%20de%20renta%20de%20traje."
+          target="_blank"
+          rel="noopener noreferrer">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Pedir por WhatsApp
+        </a>
+        <p class="order-note">También puedes llamar al <a href="tel:8672474378">867 247 4378</a></p>
+      </div>
+    </div>
+  </section>
+
   <section id="contacto">
     <div class="container">
       <p class="section-label reveal">Visítanos</p>
@@ -682,17 +979,17 @@
         </div>
         <div class="contact-details">
           <div class="contact-row reveal">
-            <div class="contact-row-icon"></div>
+            <div class="contact-row-icon">📍</div>
             <div class="contact-row-text">
               <h4>Dirección</h4>
               <p>Calle Dr. Mier 6302, Militar<br>88289 Nuevo Laredo, Tamps., México</p>
             </div>
           </div>
           <div class="contact-row reveal reveal-delay-1">
-            <div class="contact-row-icon"></div>
+            <div class="contact-row-icon">📞</div>
             <div class="contact-row-text">
               <h4>Teléfono</h4>
-              <a href="tel:8673344588">867 334 4588</a>
+              <a href="tel:8672474378">867 247 4378</a>
             </div>
           </div>
           <div class="contact-row reveal reveal-delay-2">
@@ -750,3 +1047,4 @@
   </script>
 </body>
 </html>
+
